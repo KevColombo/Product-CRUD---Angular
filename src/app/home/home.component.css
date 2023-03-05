@@ -1,0 +1,15 @@
+.home-container{    
+    padding: 0 5rem;
+}
+h2{
+    color: indigo;
+}
+a{
+    margin: 1rem 0;
+}
+.mat-mdc-row:hover .mat-mdc-cell {    
+    /*background-color: lightblue;*/
+    background-color: indigo;
+    color: white;
+    cursor: pointer;
+  }
