@@ -1,16 +1,43 @@
-<h2> Product code: {{product.id}} </h2>
+<div class="product-page-container">
+    <h1 *ngIf="isNew; else elseBlock"> New Product </h1>
+    
+    <ng-template #elseBlock>
+        <h1> Product Code: {{product.id}} </h1>
+    </ng-template>
+    
+    <div class="form" [formGroup]="productForm">
+        <mat-form-field  appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
 
-<mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+        <mat-form-field  appearance="fill">
+            <mat-label>Weight</mat-label>
+            <input matInput formControlName="weight">
+        </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+        <mat-form-field  appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+        <mat-form-field class="reduced"  appearance="fill">
+            <mat-label>Stock</mat-label>
+            <input matInput formControlName="stock">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Brand</mat-label>
+            <mat-select formControlName="brand">
+              <mat-option *ngFor="let brand of brands" [value]="brand">
+                {{brand.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <div class="buttons">
+            <button mat-stroked-button color="warn" (click)="onDelete()" *ngIf="!isNew"> Delete </button>
+            <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!productForm.valid"> Save </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+
+.product-page-container{
+    padding: 0 5rem;
+}
+
+mat-form-field{
+    width: 100%;
+    display: block;
+}
+
+.form{
+    padding: 0 5rem;
+}
+.buttons{
+    display: flex;
+    justify-content: right;
+}
+
+button{
+    margin: 0.5rem;
+}

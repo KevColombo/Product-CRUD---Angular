@@ -1,4 +1,5 @@
 import { BaseModel } from "./base-model";
+import { Brand } from "./brand";
 
 export class Product extends BaseModel{
     name!: string;
@@ -6,7 +7,7 @@ export class Product extends BaseModel{
     weight!: number;
     stock?: number = 0;
     image?: string;
-    brand?: string;
+    brand?: Brand;
     constructor(){
         super()
     }
